@@ -1,26 +1,28 @@
+import { INCREAMENT, DECREAMENT, SIGN_IN, SIGN_OUT } from "./actionNames";
+
 export const increament  = (num) => {
     return {
-        type: 'INCREAMENT',
+        type: INCREAMENT,
         payload: num
     }
 };
 
 export const decrement = () => {
     return {
-        type: 'DECREMENT'
+        type: DECREAMENT
     }
 };
 
 
 export const login = () => {
     return {
-        type: 'SIGN_IN'
+        type: SIGN_IN
     }
 };
 
 export const logout = () => {
     return {
-        type: 'SIGN_OUT'
+        type: SIGN_OUT
     }
 };
 

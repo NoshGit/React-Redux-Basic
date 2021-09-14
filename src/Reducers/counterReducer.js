@@ -1,8 +1,9 @@
+import { INCREAMENT, DECREAMENT } from "../Redux/actionNames";
 const counterReducer = (state = 0, action) => {
     switch (action.type) {
-        case "INCREAMENT":
+        case INCREAMENT:
             return state + action.payload
-        case "DECREMENT":
+        case DECREAMENT:
             return state - 1
         default:
             return state
