@@ -1,8 +1,10 @@
 import './App.css';
 import Counter from './Components/Counter';
 import { useDispatch } from 'react-redux';
-import { increament, decrement, login, logout } from './Redux/actions';
+import { login, logout } from './Redux/actions';
 import { useSelector } from 'react-redux';
+import DisplayContainer from './Components/DisplayContainer';
+import ButtonComponent from './Components/ButtonComponent';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,13 +17,16 @@ function App() {
 
         <div>Hello {isLogged? 'Noshir' : 'Guest'}!</div>
       </header>
-      <button onClick={()=> dispatch(increament(2))}>Increament</button>
-      <button onClick={()=> dispatch(decrement())}>Decreament</button>
+      <ButtonComponent increase />
+      <ButtonComponent />
 
       <div className="log-in-btn">
         {isLogged? <button onClick={()=> dispatch(logout())}>Log Out</button> : 
         <button onClick={()=> dispatch(login())}>Log In</button>}
       </div>
+
+      <DisplayContainer count />
+      <DisplayContainer />
     </div>
   );
 }
