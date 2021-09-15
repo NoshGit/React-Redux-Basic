@@ -2,16 +2,50 @@
   text-align: center;
 }
 
+ul, ol {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 5vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content:space-between;
+  font-size: 16px;
   color: white;
+  padding: 0 25px;
 }
+
+.App-header .links {
+  color: #fff;
+}
+
+.App-header .links:hover, .App-header .active-link {
+  color: lightseagreen;
+}
+
+.nav-links li {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.greet-section{
+    margin-left: 25px;
+}
+
+.home-header{
+  background-color: #283349;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
 .log-in-btn{
   margin-top: 25px;
 }

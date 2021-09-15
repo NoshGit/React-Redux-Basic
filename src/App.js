@@ -1,33 +1,35 @@
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
-import Counter from './Components/Counter';
-import { useDispatch } from 'react-redux';
-import { login, logout } from './Redux/actions';
 import { useSelector } from 'react-redux';
-import DisplayContainer from './Components/DisplayContainer';
-import ButtonComponent from './Components/ButtonComponent';
+import HomeComponent from './Components/HomeComponent';
+import UserContainer from './Components/UserContainer';
 
-function App() {
-  const dispatch = useDispatch();
+const App = () => {
   const isLogged = useSelector(state => state.isLogged); 
-  console.log('>>', isLogged);
   return (
-    <div className="App">
-      <header className="App-header">
-        <Counter />
+    <Router>
+      <div className="App">  
+        <div className="App-header">
+          <h4>React Redux Basic</h4>
 
-        <div>Hello {isLogged? 'Noshir' : 'Guest'}!</div>
-      </header>
-      <ButtonComponent increase />
-      <ButtonComponent />
+          <ul className='nav-links'>
+            <li>
+              <NavLink className="links" activeClassName="active-link" to="/" exact>Home</NavLink>       
+            </li>
+            <li>
+              <NavLink className="links" activeClassName="active-link" to="/users">Users</NavLink>
+            </li>
+          </ul>
 
-      <div className="log-in-btn">
-        {isLogged? <button onClick={()=> dispatch(logout())}>Log Out</button> : 
-        <button onClick={()=> dispatch(login())}>Log In</button>}
+          <div className='greet-section'>Hello {isLogged? 'Noshir' : 'Guest'}!</div>
+        </div>    
+        <Switch>
+          <Route path="/" exact component={HomeComponent} />
+          <Route path="/users" component={UserContainer} />
+        </Switch>
+
       </div>
-
-      <DisplayContainer count />
-      <DisplayContainer />
-    </div>
+    </Router>
   );
 }
 
