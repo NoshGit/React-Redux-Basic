@@ -3,6 +3,7 @@ import './App.css';
 import { useSelector } from 'react-redux';
 import HomeComponent from './Components/HomeComponent';
 import UserContainer from './Components/UserContainer';
+import PageNotFound from './Components/PageNotFound';
 
 const App = () => {
   const isLogged = useSelector(state => state.isLogged); 
@@ -26,6 +27,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={HomeComponent} />
           <Route path="/users" component={UserContainer} />
+          <Route component={PageNotFound} />
         </Switch>
 
       </div>
